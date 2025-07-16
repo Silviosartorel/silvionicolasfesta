@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FAF0E6', justifyContent: 'center', alignItems: 'center', padding: 20 },
   titulo: { fontSize: 28, fontWeight: 'bold', marginBottom: 20 },
   pontos: { fontSize: 22, marginBottom: 10 },
-  mensagem: { fontSize: 18, textAlign: 'center', marginBottom: 30 }
+  mensagem: { fontSize: 18, textAlign: 'center', marginBottom: 30 },
+   button:{position:'relative',backgroundColor:'#800000',padding:10, marginVertical:2, textAlign:'center', borderRadius:10}
 });

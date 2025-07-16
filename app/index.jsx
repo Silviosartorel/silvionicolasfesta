@@ -33,7 +33,7 @@ export default function HomeScreen() {
               <Text style={styles.nome}>{item.nome} – R${item.preco}</Text>
               <Text style={styles.ingredientes}>Ingredientes: {item.ingredientes}</Text>
               <TouchableOpacity onPress={() => alternarFavorito(item.id)}>
-                <Text style={styles.favorito}>
+                <Text style={styles.favorito}> 
                   {favoritos.includes(item.id) ? '❤️ Favorito' : '🤍 Marcar favorito'}
                 </Text>
               </TouchableOpacity>
@@ -41,8 +41,8 @@ export default function HomeScreen() {
           </View>
         )}
       />
-      <Button title="🎣 Jogar Pescaria 🎣" onPress={() => router.push('PescariaScreen')} />
-      <Button title="❓ Fazer Quiz Junino ❓" onPress={() => router.push('QuizScreen')} />
+      <TouchableOpacity style={styles.button} onPress={() => router.push('PescariaScreen')}><Text style={styles.textoBotao}>Jogar Pescaria </Text></TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('QuizScreen')}><Text style={styles.textoBotao}>Jogar Quiz </Text></TouchableOpacity>
     </View>
   );
 }
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#CD853F',
-    paddingTop: 40,
+    paddingTop: 10,
     paddingHorizontal: 10,
     paddingBottom: 60
   },
@@ -59,10 +59,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 30,
     color: 'yellow',
     backgroundColor: 'brown',
-    borderRadius: 100
+    borderRadius: 10,
+    padding:20,
   },
   card: {
     flexDirection: 'row',
@@ -75,5 +76,7 @@ const styles = StyleSheet.create({
   info: { flex: 1, padding: 10 },
   nome: { fontSize: 18, fontWeight: 'bold' },
   ingredientes: { fontSize: 12, color: '#000', marginTop: 4 },
-  favorito: { marginTop: 8, fontSize: 14 }
+  favorito: { marginTop: 8, fontSize: 14 },
+    button:{position:'relative',backgroundColor:'#800000',padding:10, marginVertical:2, textAlign:'center', borderRadius:10},
+    textoBotao: { color: 'white', fontSize: 16, textAlign: 'center' },
 });

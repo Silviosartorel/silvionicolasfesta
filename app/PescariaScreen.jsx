@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import {View,Text,StyleSheet,Dimensions,Animated,TouchableWithoutFeedback,Button,Image} from 'react-native';
+import {View,Text,StyleSheet,Dimensions,Animated,TouchableOpacity,TouchableWithoutFeedback,Button,Image} from 'react-native';
 import { useRouter } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
@@ -37,10 +37,7 @@ export default function PescariaScreen() {
 
       <TouchableWithoutFeedback onPress={pescar}>
         <Animated.View
-          style={[
-            styles.peixe,
-            {
-              transform: [
+          style={[styles.peixe,{ transform: [
                 { translateX: peixeX },
                 { translateY: peixeY }
               ]
@@ -52,8 +49,8 @@ export default function PescariaScreen() {
       </TouchableWithoutFeedback>
 
       <View style={styles.btnVoltar}>
-        <Button title="Voltar para o Cardápio" onPress={() => router.push('/')} />
-        <Button title="❓ Fazer Quiz Junino ❓" onPress={() => router.push('QuizScreen')} />
+        <TouchableOpacity style={styles.button} onPress={() => router.push('/')}><Text style={styles.textoBotao}>Voltar para o Cardápio </Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => router.push('QuizScreen')}><Text style={styles.textoBotao}>Jogar Quiz </Text></TouchableOpacity>
       </View>
     </View>
   );
@@ -87,5 +84,8 @@ const styles = StyleSheet.create({
   btnVoltar: {
     position: 'absolute',
     bottom: 30
-  }
+  },
+    button:{position:'relative',backgroundColor:'#800000',padding:10, marginVertical:2, textAlign:'center', borderRadius:10},
+    textoBotao: { color: 'white', fontSize: 16, textAlign: 'center' },
+
 });

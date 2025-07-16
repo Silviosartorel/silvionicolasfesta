@@ -42,25 +42,27 @@ export default function QuizScreen() {
       <Text style={styles.progresso}>Pergunta {indice + 1} de {perguntas.length}</Text>
       <View style={styles.btnVoltar}>
 
-      <Button title="Voltar para o Cardápio" onPress={() => router.push('/')} />
-      <Button title="🎣 Jogar Pescaria 🎣" onPress={() => router.push('PescariaScreen')} />
         </View>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/')}><Text style={styles.textoBotao}>Voltar para o Cardápio </Text></TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('PescariaScreen')}><Text style={styles.textoBotao}>Jogar Pescaria </Text></TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FFDAB9', padding: 20, justifyContent: 'center' },
+  container: { flex: 1, backgroundColor: '#F5DEB3', padding: 20, justifyContent: 'center' },
 
-  titulo: { fontSize: 26, fontWeight: 'bold', textAlign: 'center', marginBottom: 20, color: '#8B0000' },
+  titulo: { fontSize: 26, fontWeight: 'bold', textAlign: 'center',marginTop:-200, marginBottom: 20, color: '#8B0000' },
 
   pergunta: { fontSize: 20, marginBottom: 10, fontWeight: 'bold' },
 
-  botao: { backgroundColor: '#FF7F50', padding: 12, borderRadius: 10, marginVertical: 6 },
+  botao: { backgroundColor: '#A0522D', padding: 12, borderRadius: 10, marginVertical: 6 },
 
   textoBotao: { color: 'white', fontSize: 16, textAlign: 'center' },
 
   progresso: { marginTop: 20, fontSize: 14, textAlign: 'center' },
 
-  btnVoltar: {bottom: 30}
+  btnVoltar: {bottom: 30,},
+
+  button:{position:'relative',backgroundColor:'#800000',padding:10, marginVertical:2, textAlign:'center', borderRadius:10}
 });
