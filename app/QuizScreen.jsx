@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { Button } from 'react-native';
 
 const perguntas = [
   { pergunta: 'Qual a origem da Festa Junina?', opcoes: ['Estados Unidos', 'Brasil', 'Europa', 'África'], resposta: 'Europa' },
@@ -39,8 +40,8 @@ export default function QuizScreen() {
         </TouchableOpacity>
       ))}
       <Text style={styles.progresso}>Pergunta {indice + 1} de {perguntas.length}</Text>
-
       <View style={styles.btnVoltar}>
+
       <Button title="Voltar para o Cardápio" onPress={() => router.push('/')} />
       <Button title="🎣 Jogar Pescaria 🎣" onPress={() => router.push('PescariaScreen')} />
         </View>
@@ -50,13 +51,16 @@ export default function QuizScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FFDAB9', padding: 20, justifyContent: 'center' },
+
   titulo: { fontSize: 26, fontWeight: 'bold', textAlign: 'center', marginBottom: 20, color: '#8B0000' },
+
   pergunta: { fontSize: 20, marginBottom: 10, fontWeight: 'bold' },
+
   botao: { backgroundColor: '#FF7F50', padding: 12, borderRadius: 10, marginVertical: 6 },
+
   textoBotao: { color: 'white', fontSize: 16, textAlign: 'center' },
+
   progresso: { marginTop: 20, fontSize: 14, textAlign: 'center' },
-    btnVoltar: {
-    position: 'absolute',
-    bottom: 30
-  }
+
+  btnVoltar: {bottom: 30}
 });

@@ -6,8 +6,7 @@ export default function ResultadoScreen() {
   const { pontos } = useLocalSearchParams();
 
   const mensagem = pontos >= 4
-    ? 'Você é um(a) verdadeiro(a) caipira junino(a)! 💃🕺'
-    : 'Treine mais com milho e fogueira! 🌽🔥';
+    ? 'Você é um(a) verdadeiro(a) caipira junino(a)! 💃🕺' : 'Treine mais com milho e fogueira! 🌽🔥';
 
   return (
     <View style={styles.container}>

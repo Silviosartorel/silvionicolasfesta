@@ -1,30 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import {View,Text,StyleSheet,Dimensions,Animated,TouchableWithoutFeedback,Button,Image} from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  Animated,
+  TouchableWithoutFeedback,
+  Button,
+  Image
+} from 'react-native';
 import { useRouter } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
-
-const peixeImagem = require('../assets/peixe.png'); 
+const peixeImagem = require('../assets/peixe.png');
 
 export default function PescariaScreen() {
-  const router = useRouter(); 
+  const router = useRouter();
   const [pontuacao, setPontuacao] = useState(0);
   const [peixeX, setPeixeX] = useState(Math.random() * (width - 100));
-  const [peixeY, setPeixeY] = useState(new Animated.Value(-100));
+  const peixeY = useRef(new Animated.Value(-100)).current;
 
   const animarPeixe = () => {
-    setPeixeX(Math.random() * (width - 100));
-    peixeY.setValue(-100);
+    setPeixeX(Math.random() * (width - 1000));
+    peixeY.setValue(-100); 
+
     Animated.timing(peixeY, {
-      toValue: height,
-      duration: 3000,
+      toValue: height, 
+      duration: 3500,
       useNativeDriver: true
-    }).start(() => animarPeixe());
+    }).start(() => animarPeixe()); 
   };
 
   const pescar = () => {
     setPontuacao((prev) => prev + 1);
-    animarPeixe();
+    animarPeixe(); 
   };
 
   useEffect(() => {
@@ -34,24 +43,26 @@ export default function PescariaScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.pontuacao}>🎯 Pontuação: {pontuacao}</Text>
-      
+
       <TouchableWithoutFeedback onPress={pescar}>
         <Animated.View
-          style={[styles.peixe, {
-            transform: [
-              { translateX: peixeX },
-              { translateY: peixeY }
-            ]
-          }]}
+          style={[
+            styles.peixe,
+            {
+              transform: [
+                { translateX: peixeX },
+                { translateY: peixeY }
+              ]
+            }
+          ]}
         >
           <Image source={peixeImagem} style={styles.imagem} />
         </Animated.View>
       </TouchableWithoutFeedback>
 
       <View style={styles.btnVoltar}>
-          
-      <Button title="Voltar para o Cardápio" onPress={() => router.push('/')} />
-      <Button title="❓ Fazer Quiz Junino ❓" onPress={() => router.push('QuizScreen')} />
+        <Button title="Voltar para o Cardápio" onPress={() => router.push('/')} />
+        <Button title="❓ Fazer Quiz Junino ❓" onPress={() => router.push('QuizScreen')} />
       </View>
     </View>
   );
