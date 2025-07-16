@@ -23,7 +23,6 @@ export default function QuizScreen() {
       setPontos(novaPontuacao);
       setIndice(indice + 1);
     } else {
-      // Redireciona para a tela de resultado passando a pontuação
       router.push({ pathname: '/ResultadoScreen', params: { pontos: novaPontuacao } });
     }
   };
@@ -40,6 +39,11 @@ export default function QuizScreen() {
         </TouchableOpacity>
       ))}
       <Text style={styles.progresso}>Pergunta {indice + 1} de {perguntas.length}</Text>
+
+      <View style={styles.btnVoltar}>
+      <Button title="Voltar para o Cardápio" onPress={() => router.push('/')} />
+      <Button title="🎣 Jogar Pescaria 🎣" onPress={() => router.push('PescariaScreen')} />
+        </View>
     </View>
   );
 }
@@ -50,5 +54,9 @@ const styles = StyleSheet.create({
   pergunta: { fontSize: 20, marginBottom: 10, fontWeight: 'bold' },
   botao: { backgroundColor: '#FF7F50', padding: 12, borderRadius: 10, marginVertical: 6 },
   textoBotao: { color: 'white', fontSize: 16, textAlign: 'center' },
-  progresso: { marginTop: 20, fontSize: 14, textAlign: 'center' }
+  progresso: { marginTop: 20, fontSize: 14, textAlign: 'center' },
+    btnVoltar: {
+    position: 'absolute',
+    bottom: 30
+  }
 });

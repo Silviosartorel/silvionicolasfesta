@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  Animated,
-  TouchableWithoutFeedback,
-  Button,
-  Image
-} from 'react-native';
+import {View,Text,StyleSheet,Dimensions,Animated,TouchableWithoutFeedback,Button,Image} from 'react-native';
 import { useRouter } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
 
-const peixeImagem = require('../assets/peixe.png'); // Pode trocar por outro
+const peixeImagem = require('../assets/peixe.png'); 
 
 export default function PescariaScreen() {
-  const router = useRouter(); // ✅ usar expo-router aqui
+  const router = useRouter(); 
   const [pontuacao, setPontuacao] = useState(0);
   const [peixeX, setPeixeX] = useState(Math.random() * (width - 100));
   const [peixeY, setPeixeY] = useState(new Animated.Value(-100));

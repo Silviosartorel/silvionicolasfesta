@@ -1,14 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'expo-router';
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  Button
-} from 'react-native';
+import {View,Text,FlatList,Image,TouchableOpacity,StyleSheet,Button} from 'react-native';
 
 const COMIDAS_JUNINAS = [
   { id: '1', nome: 'Pipoca 🍿', preco: 5, imagem: require('../assets/pipoca.jpg'), ingredientes: 'Milho, óleo, sal' },
